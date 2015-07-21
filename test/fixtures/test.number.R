@@ -3,7 +3,7 @@ library( jsonlite );
 
 
 mu = 0
-s = 1
+s = 0.5
 x = c( -5, -2.5, 0, 2.5, 5 )
 y = dlogis( x, mu,s )
 
@@ -11,7 +11,7 @@ cat( y, sep = ",\n" )
 
 data = list(
 	mu = mu,
-s = s,
+	s = s,
 	data = x,
 	expected = y
 )
