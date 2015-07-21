@@ -6,8 +6,8 @@ Probability Density Function
 
 The [probability density function](https://en.wikipedia.org/wiki/Probability_density_function) (PDF) for a [Logistic](https://en.wikipedia.org/wiki/Logistic_distribution) random variable is
 
-<div class="equation" align="center" data-raw-text="" data-equation="eq:pdf_function">
-	<img src="" alt="Probability density function (PDF) for a Logistic distribution.">
+<div class="equation" align="center" data-raw-text="f(x; \mu,s) = \frac{e^{-\frac{x-\mu}{s}}} {s\left(1+e^{-\frac{x-\mu}{s}}\right)^2}" data-equation="eq:pdf_function">
+	<img src="https://cdn.rawgit.com/distributions-io/logistic-pdf/c4d401089c4ef561ece9deff1a60e8588da69fa7/docs/img/eqn.svg" alt="Probability density function (PDF) for a Logistic distribution.">
 	<br>
 </div>
 
@@ -40,18 +40,18 @@ var matrix = require( 'dstructs-matrix' ),
 	i;
 
 out = pdf( 1 );
-// returns
+// returns ~0.197
 
 out = pdf( -1 );
-// returns 0
+// returns ~0.197
 
 x = [ 0, 0.5, 1, 1.5, 2, 2.5 ];
 out = pdf( x );
-// returns [...]
+// returns [ ~0.25, ~0.235, ~0.197, ~0.149, ~0.105, ~0.0701 ]
 
 x = new Int8Array( x );
 out = pdf( x );
-// returns Float64Array( [...] )
+// returns Float64Array( [~0.25,~0.25,~0.197,~0.197,~0.105, ~0.105] )
 
 x = new Float32Array( 6 );
 for ( i = 0; i < 6; i++ ) {
@@ -66,9 +66,9 @@ mat = matrix( x, [3,2], 'float32' );
 
 out = pdf( mat );
 /*
-	[
-
-	   ]
+	[  ~0.25  ~0.235
+	   ~0.197 ~0.149
+	   ~0.105 ~0.0701 ]
 */
 ```
 
@@ -91,7 +91,7 @@ var out = pdf( x, {
 	'mu': 7,
 	's': 6
 });
-// returns [...]
+// returns [ ~0.0302, ~0.0315, ~0.0328, ~0.034, ~0.0352, ~0.0363 ]
 ```
 
 For non-numeric `arrays`, provide an accessor `function` for accessing `array` values.
@@ -113,7 +113,7 @@ function getValue( d, i ) {
 var out = pdf( data, {
 	'accessor': getValue
 });
-// returns [...]
+// returns [ ~0.25, ~0.235, ~0.197, ~0.149, ~0.105, ~0.0701 ]
 ```
 
 
@@ -135,12 +135,12 @@ var out = pdf( data, {
 });
 /*
 	[
-		{'x':[0,]},
-		{'x':[1,]},
-		{'x':[2,]},
-		{'x':[3,]},
-		{'x':[4,]},
-		{'x':[5,]}
+		{'x':[0,~0.25]},
+		{'x':[1,~0.235]},
+		{'x':[2,~0.197]},
+		{'x':[3,~0.149]},
+		{'x':[4,~0.105]},
+		{'x':[5,~0.0701]}
 	]
 */
 
@@ -156,15 +156,19 @@ var x, out;
 x = new Int8Array( [0,1,2,3,4] );
 
 out = pdf( x, {
-	'dtype': 'int32'
+	'dtype': 'int32',
+	'mu': 2,
+	's': 0.2
 });
-// returns Int32Array( [...] )
+// returns Int32Array( [0,0,1,0,0] )
 
 // Works for plain arrays, as well...
-out = pdf( [0,0.5,1,1.5,2], {
-	'dtype': 'uint8'
+out = pdf( [0,1,2,3,4], {
+	'dtype': 'uint8',
+	'mu': 2,
+	's': 0.2
 });
-// returns Uint8Array( [...] )
+// returns Uint8Array( [0,0,1,0,0] )
 ```
 
 By default, the function returns a new data structure. To mutate the input data structure (e.g., when input values can be discarded or when optimizing memory usage), set the `copy` option to `false`.
@@ -181,7 +185,7 @@ x = [ 0, 0.5, 1, 1.5, 2 ];
 out = pdf( x, {
 	'copy': false
 });
-// returns [...]
+// returns [ ~0.25, ~0.235, ~0.197, ~0.149, ~0.105, ~0.0701 ]
 
 bool = ( x === out );
 // returns true
@@ -201,9 +205,9 @@ out = pdf( mat, {
 	'copy': false
 });
 /*
-	[
-
-	   ]
+	[  ~0.25  ~0.235
+	   ~0.197 ~0.149
+	   ~0.105 ~0.0701 ]
 */
 
 bool = ( mat === out );
