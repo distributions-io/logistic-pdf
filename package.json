@@ -1,7 +1,7 @@
 {
   "name": "distributions-logistic-pdf",
   "version": "0.0.0",
-  "description": "Logistic  distribution probability density function (PDF)",
+  "description": "Logistic distribution probability density function (PDF)",
   "author": {
     "name": "Philipp Burckhardt",
     "email": "pburckhardt@outlook.com"
@@ -20,18 +20,19 @@
   "main": "./lib",
   "repository": {
     "type": "git",
-    "url": "git://github.com/compute-io/logistic-pdf.git"
+    "url": "git://github.com/distributions-io/logistic-pdf.git"
   },
   "keywords": [
     "distributions.io",
     "distributions",
+    "continuous",
     "probability",
     "statistics",
     "stats",
     "pdf"
   ],
   "bugs": {
-    "url": "https://github.com/compute-io/logistic-pdf/issues"
+    "url": "https://github.com/distributions-io/logistic-pdf/issues"
   },
   "dependencies": {
     "compute-array-constructors": "^1.0.0",
@@ -57,7 +58,7 @@
     "istanbul": "^0.3.0",
     "jshint": "2.x.x",
     "jshint-stylish": "2.x.x",
-	"validate.io-finite": "^1.0.0"
+    "validate.io-finite": "^1.0.0"
   },
   "license": "MIT"
 }

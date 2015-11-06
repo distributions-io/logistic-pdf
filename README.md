@@ -4,10 +4,10 @@ Probability Density Function
 
 > [Logistic](https://en.wikipedia.org/wiki/Logistic_distribution) distribution probability density function (PDF).
 
-The [probability density function](https://en.wikipedia.org/wiki/Probability_density_function) (PDF) for a [Logistic](https://en.wikipedia.org/wiki/Logistic_distribution) random variable is
+The [probability density function](https://en.wikipedia.org/wiki/Probability_density_function) (PDF) for a [logistic](https://en.wikipedia.org/wiki/Logistic_distribution) random variable is
 
 <div class="equation" align="center" data-raw-text="f(x; \mu,s) = \frac{e^{-\frac{x-\mu}{s}}} {s\left(1+e^{-\frac{x-\mu}{s}}\right)^2}" data-equation="eq:pdf_function">
-	<img src="https://cdn.rawgit.com/distributions-io/logistic-pdf/c4d401089c4ef561ece9deff1a60e8588da69fa7/docs/img/eqn.svg" alt="Probability density function (PDF) for a Logistic distribution.">
+	<img src="https://cdn.rawgit.com/distributions-io/logistic-pdf/c4d401089c4ef561ece9deff1a60e8588da69fa7/docs/img/eqn.svg" alt="Probability density function (PDF) for a logistic distribution.">
 	<br>
 </div>
 
@@ -30,7 +30,7 @@ var pdf = require( 'distributions-logistic-pdf' );
 
 #### pdf( x[, options] )
 
-Evaluates the [probability density function](https://en.wikipedia.org/wiki/Probability_density_function) (PDF) for the [Logistic](https://en.wikipedia.org/wiki/Logistic_distribution) distribution. `x` may be either a [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), a [`typed array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays), or a [`matrix`](https://github.com/dstructs/matrix).
+Evaluates the [probability density function](https://en.wikipedia.org/wiki/Probability_density_function) (PDF) for the [logistic](https://en.wikipedia.org/wiki/Logistic_distribution) distribution. `x` may be either a [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), a [`typed array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays), or a [`matrix`](https://github.com/dstructs/matrix).
 
 ``` javascript
 var matrix = require( 'dstructs-matrix' ),
@@ -82,7 +82,7 @@ The function accepts the following `options`:
 *	__path__: [deepget](https://github.com/kgryte/utils-deep-get)/[deepset](https://github.com/kgryte/utils-deep-set) key path.
 *	__sep__: [deepget](https://github.com/kgryte/utils-deep-get)/[deepset](https://github.com/kgryte/utils-deep-set) key path separator. Default: `'.'`.
 
-A [Logistic](https://en.wikipedia.org/wiki/Logistic_distribution) distribution is a function of 2 parameter(s): `mu`(location parameter) and `s`(scale parameter). By default, `mu` is equal to `0` and `s` is equal to `1`. To adjust either parameter, set the corresponding option(s).
+A [logistic](https://en.wikipedia.org/wiki/Logistic_distribution) distribution is a function of two parameters: `mu`(location parameter) and `s`(scale parameter). By default, `mu` is equal to `0` and `s` is equal to `1`. To adjust either parameter, set the corresponding option.
 
 ``` javascript
 var x = [ 0, 0.5, 1, 1.5, 2, 2.5 ];
